@@ -4,10 +4,16 @@
 
 using namespace std;
 
+#ifdef _WIN32
+    #define LOGFILE "MyLogWin.txt"
+#else
+    #define LOGFILE "MyLogNix.txt"
+#endif
+
 int main()
 {
     {
-        ofstream of("MyLog.txt"); //Creates a new file for write, if the file doesn't exist
+        ofstream of(LOGFILE); //Creates a new file for write, if the file doesn't exist
 
         // The left bitshift operator is overloaded for a variety of types
         of << "Experience is the mother of wisdom" << endl;
@@ -20,13 +26,13 @@ int main()
 
     {
         //Append Mode
-        ofstream of("MyLog.txt", ofstream::app); // Moves the output pointer to the end of the file
+        ofstream of(LOGFILE, ofstream::app); // Moves the output pointer to the end of the file
         of << "Honesty is the best policy" << endl;
 
     } // Enclosing scope calls ofstream destructor when an ofstream falls out of scope
 
     {
-        ofstream of("MyLog.txt", ofstream::in | ofstream::out); //Read/Write Mode (with arbitrary output/input pointer positions)
+        ofstream of(LOGFILE, ofstream::in | ofstream::out); //Read/Write Mode (with arbitrary output/input pointer positions)
         of.seekp(10, ios::beg);                                 // Move the output pointer 10 chars after beginning of file
         of << "12345";                                          // Overwrite 5 chars
         of.seekp(-5, ios::end);                                 // Move the output pointer 5 chars before end

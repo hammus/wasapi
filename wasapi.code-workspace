@@ -13,7 +13,9 @@
             "xmemory0": "cpp",
             "xstring": "cpp",
             "xutility": "cpp",
-            "iosfwd": "cpp"
+            "iosfwd": "cpp",
+            "xiosbase": "cpp",
+            "xlocale": "cpp"
         }
     }
 }
