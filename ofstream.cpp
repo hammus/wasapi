@@ -44,21 +44,26 @@ int main()
     // Formatting
     {
         ofstream of("Formatting.txt");
-        of << 34 << endl;                   // writes 34;
-        of.setf(ios::oct, ios::basefield);  // set format to octal but clear decimal and hex flags which are also set in basefield
-        of << 34 << endl;                   // writes 42 (octal representation of 34)
-        of.setf(ios::showbase);             // Show the base identifier prefix
-        of << 34 << endl;                   // writes 042 (octal representation of 34 with the base identifier prefix for octal - see hex verison below and this will be familiar)
-        of.setf(ios::hex, ios::basefield);  // set format to hexidecimal but clear dec and oct flags
-        of << 34 << endl;                   // writes 0x22 (hex representation of 34) with the base identifier prefix for hex
+        of << 34 << endl;                       // writes 34;
+        of.setf(ios::oct, ios::basefield);      // set format to octal but clear decimal and hex flags which are also set in basefield
+        of << 34 << endl;                       // writes 42 (octal representation of 34)
+        of.setf(ios::showbase);                 // Show the base identifier prefix
+        of << 34 << endl;                       // writes 042 (octal representation of 34 with the base identifier prefix for octal - see hex verison below and this will be familiar)
+        of.setf(ios::hex, ios::basefield);      // set format to hexidecimal but clear dec and oct flags
+        of << 34 << endl;                       // writes 0x22 (hex representation of 34) with the base identifier prefix for hex
 
-        of.unsetf(ios::showbase);           // Hide the base identifier prefix
-        of << 34 << endl;                   // writes 22 (hex representation of 34)
+        of.unsetf(ios::showbase);               // Hide the base identifier prefix
+        of << 34 << endl;                       // writes 22 (hex representation of 34)
 
-        of.setf(ios::dec, ios::basefield);  // set format to decimal
+        of.setf(ios::dec, ios::basefield);      // set format to decimal
 
-        of.width(10);                       // Set the width of the write
-        of << 34 << endl;                   // writes "        34"
+        of.width(10);                           // Set the minimum characters to write (defaults to filling with spaces)
+        of << 34 << endl;                       // writes "        34"
+        of.setf(ios::left, ios::adjustfield);   // Write the value to the left of the width (defaults right)
+        of << 34 << endl;                       // writes "34        "
         
+        of.width(0);                           // Reset the minimum width to 0;
+        //Floating point values
+        of.setf(ios::scientific, ios::floatfield);
     }
 } 
