@@ -1,0 +1,19 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "terminal.integrated.shell.windows": 
+        "C:\\Users\\liamw.DESKTOP-DIED9L9\\AppData\\Local\\Microsoft\\WindowsApps\\ubuntu.exe",
+        "files.associations": {
+            "ostream": "cpp",
+            "streambuf": "cpp",
+            "xmemory0": "cpp",
+            "xstring": "cpp",
+            "xutility": "cpp",
+            "iosfwd": "cpp"
+        }
+    }
+}
